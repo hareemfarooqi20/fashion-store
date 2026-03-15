@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx:*)",
+      "Bash(mkdir -p /d/projects/fashion-store-tmp)",
+      "Read(//d/projects/**)",
+      "Bash(cp:*)",
+      "Bash(rsync:*)",
+      "Bash(npm install:*)",
+      "Bash(git rm:*)"
+    ]
+  }
+}
