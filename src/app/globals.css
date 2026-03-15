@@ -1,14 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
 @import "tailwindcss";
 
 :root {
   --brand: #C5956A;
   --brand-dark: #A07040;
   --brand-light: #E8BF9A;
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
 }
 
+/* ─── Base ─────────────────────────────────────────────── */
+*, *::before, *::after { cursor: none; }
+
 body {
-  background: #0A0A0A;
+  background: var(--bg-primary);
   color: #F5F5F5;
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,38 +22,75 @@ body {
 
 html { scroll-behavior: smooth; }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #111; }
-::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 3px; }
+/* Default cursor restored on touch devices */
+@media (pointer: coarse) {
+  *, *::before, *::after { cursor: auto; }
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: var(--brand); border-radius: 2px; }
 ::selection { background: var(--brand); color: #fff; }
 
+/* ─── Typography ─────────────────────────────────────────── */
 .font-display { font-family: 'Playfair Display', Georgia, serif; }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--brand), color-mix(in srgb, var(--brand), white 40%));
+  background: linear-gradient(135deg, var(--brand) 0%, color-mix(in srgb, var(--brand), white 45%) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+.gradient-text-warm {
+  background: linear-gradient(135deg, #E8BF9A 0%, #C5956A 50%, #A07040 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glass & Surfaces ──────────────────────────────────── */
 .glass {
   background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+.glass-hover:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
 }
 
 .glass-brand {
   background: color-mix(in srgb, var(--brand), transparent 88%);
   backdrop-filter: blur(12px);
-  border: 1px solid color-mix(in srgb, var(--brand), transparent 70%);
+  border: 1px solid color-mix(in srgb, var(--brand), transparent 68%);
 }
 
+.glass-dark {
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ─── Glow & Shadow ─────────────────────────────────────── */
 .brand-glow {
   box-shadow:
-    0 0 30px color-mix(in srgb, var(--brand), transparent 60%),
-    0 0 60px color-mix(in srgb, var(--brand), transparent 85%);
+    0 0 20px color-mix(in srgb, var(--brand), transparent 55%),
+    0 0 50px color-mix(in srgb, var(--brand), transparent 80%),
+    0 4px 24px rgba(0,0,0,0.5);
 }
 
+.brand-glow-sm {
+  box-shadow: 0 0 15px color-mix(in srgb, var(--brand), transparent 60%);
+}
+
+.shadow-luxury {
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* ─── Background Patterns ──────────────────────────────── */
 .grid-bg {
   background-image:
     linear-gradient(color-mix(in srgb, var(--brand), transparent 94%) 1px, transparent 1px),
@@ -56,54 +98,128 @@ html { scroll-behavior: smooth; }
   background-size: 60px 60px;
 }
 
+.dot-bg {
+  background-image: radial-gradient(circle, rgba(197,149,106,0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.noise-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Forms ─────────────────────────────────────────────── */
+.form-input {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  color: #F5F5F5;
+  border-radius: 10px;
+  padding: 13px 18px;
+  width: 100%;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  font-size: 15px;
+}
+
+.form-input:focus {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand), transparent 93%);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand), transparent 86%), 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.form-input::placeholder { color: rgba(255,255,255,0.28); }
+
+/* ─── Buttons ──────────────────────────────────────────── */
+.btn-press:active { transform: scale(0.96); }
+
+.btn-brand {
+  background: var(--brand);
+  color: white;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 14px 32px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-brand::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.btn-brand:hover::after { opacity: 1; }
+.btn-brand:hover { transform: translateY(-1px); box-shadow: 0 8px 24px color-mix(in srgb, var(--brand), transparent 50%); }
+
+/* ─── Product Cards ─────────────────────────────────────── */
+.product-card:hover .product-image { transform: scale(1.06); }
+
+.product-card .product-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.product-card:hover .product-overlay { opacity: 1; }
+
+/* ─── Marquee ──────────────────────────────────────────── */
 .marquee-track {
   display: flex;
   width: max-content;
   animation: marquee 35s linear infinite;
 }
 
-.form-input {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: #F5F5F5;
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  animation: marqueeReverse 40s linear infinite;
+}
+
+/* ─── Skeleton ─────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, #1a1a1a 25%, #252525 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
   border-radius: 8px;
-  padding: 12px 16px;
-  width: 100%;
-  transition: all 0.2s;
-  outline: none;
 }
 
-.form-input:focus {
-  border-color: var(--brand);
-  background: color-mix(in srgb, var(--brand), transparent 94%);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand), transparent 87%);
-}
+/* ─── Animations ─────────────────────────────────────────── */
+.float-animation { animation: float 5s ease-in-out infinite; }
+.brand-pulse { animation: brandPulse 2.2s ease-in-out infinite; }
+.animate-fade-up { animation: fadeUp 0.7s cubic-bezier(0.33, 1, 0.68, 1) forwards; }
+.animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+.animate-spin-slow { animation: spin 12s linear infinite; }
 
-.form-input::placeholder { color: rgba(255,255,255,0.3); }
-
-.btn-press:active { transform: scale(0.97); }
-
-.product-card:hover .product-image {
-  transform: scale(1.05);
-}
-
+/* ─── Keyframes ──────────────────────────────────────────── */
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
+@keyframes marqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(0.5deg); }
+  66% { transform: translateY(-6px) rotate(-0.5deg); }
 }
 
 @keyframes brandPulse {
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand), transparent 55%); }
-  50% { box-shadow: 0 0 0 14px color-mix(in srgb, var(--brand), transparent 100%); }
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand), transparent 50%); }
+  50% { box-shadow: 0 0 0 16px color-mix(in srgb, var(--brand), transparent 100%); }
 }
 
 @keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(30px); }
+  0% { opacity: 0; transform: translateY(32px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
@@ -117,13 +233,52 @@ html { scroll-behavior: smooth; }
   100% { background-position: 200% 0; }
 }
 
-.float-animation { animation: float 4s ease-in-out infinite; }
-.brand-pulse { animation: brandPulse 2s ease-in-out infinite; }
-.animate-fade-up { animation: fadeUp 0.6s ease-out forwards; }
-.animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
-.skeleton {
-  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes textReveal {
+  0% { clip-path: inset(100% 0 0 0); transform: translateY(20px); }
+  100% { clip-path: inset(0% 0 0 0); transform: translateY(0); }
+}
+
+@keyframes lineGrow {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes successIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  70% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ─── Reveal Utilities ──────────────────────────────────── */
+.reveal-text {
+  clip-path: inset(100% 0 0 0);
+  transform: translateY(20px);
+  animation: textReveal 0.8s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+.line-grow::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--brand);
+  animation: lineGrow 1.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+
+/* ─── Image ──────────────────────────────────────────────── */
+img { transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1); }
+
+/* ─── Section Divider ──────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197,149,106,0.3), transparent);
 }

@@ -3,6 +3,10 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingBooking from "@/components/ui/FloatingBooking";
+import LoadingScreen from "@/components/ui/LoadingScreen";
+import CustomCursor from "@/components/ui/CustomCursor";
+import ScrollProgress from "@/components/ui/ScrollProgress";
+import BackToTop from "@/components/ui/BackToTop";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://luxeboutique.co.uk"),
@@ -106,10 +110,14 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <LoadingScreen />
+        <CustomCursor />
+        <ScrollProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />
         <FloatingBooking />
+        <BackToTop />
       </body>
     </html>
   );

@@ -8,7 +8,10 @@
       "Bash(rsync:*)",
       "Bash(npm install:*)",
       "Bash(git rm:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npm run:*)",
+      "Bash(find:*)",
+      "Bash(git add:*)"
     ]
   }
 }
