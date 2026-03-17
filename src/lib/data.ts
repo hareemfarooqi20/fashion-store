@@ -32,7 +32,7 @@ export const PRODUCTS: Product[] = [
     price: 195,
     salePrice: 149,
     images: [
-      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80",
+      "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600&q=80",
     ],
     description:
       "Effortlessly elegant, this fluid silk-touch wrap dress drapes beautifully and flatters every silhouette.",
@@ -57,7 +57,7 @@ export const PRODUCTS: Product[] = [
     category: "women",
     price: 245,
     images: [
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
+      "https://images.unsplash.com/photo-1594938298603-c8148c4b5f05?w=600&q=80",
     ],
     description:
       "A tailored staple for every wardrobe — clean lines, padded shoulders, and a luxe camel finish.",
@@ -82,7 +82,7 @@ export const PRODUCTS: Product[] = [
     category: "women",
     price: 135,
     images: [
-      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
+      "https://images.unsplash.com/photo-1483118714900-540cf339fd46?w=600&q=80",
     ],
     description:
       "Relaxed, breathable linen trousers with a wide-leg cut — perfect from brunch to evening.",
@@ -107,7 +107,7 @@ export const PRODUCTS: Product[] = [
     category: "men",
     price: 115,
     images: [
-      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80",
+      "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80",
     ],
     description:
       "A sharp, slim-fit oxford shirt that transitions seamlessly from the boardroom to the bar.",
@@ -132,7 +132,7 @@ export const PRODUCTS: Product[] = [
     category: "men",
     price: 125,
     images: [
-      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80",
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
     ],
     description:
       "Smart-casual chinos with a tailored fit — wear them to the office or out on weekends.",
@@ -157,7 +157,7 @@ export const PRODUCTS: Product[] = [
     category: "men",
     price: 165,
     images: [
-      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80",
+      "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=600&q=80",
     ],
     description:
       "Ultra-soft merino wool jumper for effortless everyday warmth without the bulk.",
@@ -182,7 +182,7 @@ export const PRODUCTS: Product[] = [
     category: "accessories",
     price: 185,
     images: [
-      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
+      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&q=80",
     ],
     description:
       "A compact crossbody crafted from full-grain leather — the ultimate everyday companion.",
@@ -235,7 +235,7 @@ export const COLLECTIONS: Collection[] = [
     slug: "women",
     description: "Timeless pieces with a modern edge — from occasion wear to everyday staples.",
     image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80",
     productCount: 84,
     featured: true,
   },
@@ -245,7 +245,7 @@ export const COLLECTIONS: Collection[] = [
     slug: "men",
     description: "Sharp, refined essentials for the modern man who values quality.",
     image:
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80",
+      "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800&q=80",
     productCount: 67,
     featured: true,
   },
@@ -255,7 +255,7 @@ export const COLLECTIONS: Collection[] = [
     slug: "accessories",
     description: "The finishing touches that elevate every outfit.",
     image:
-      "https://images.unsplash.com/photo-1523779105320-d1cd346ff52b?w=800&q=80",
+      "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=800&q=80",
     productCount: 43,
     featured: true,
   },

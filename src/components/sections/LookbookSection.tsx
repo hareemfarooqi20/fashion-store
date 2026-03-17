@@ -4,25 +4,29 @@ import Image from "next/image";
 
 const editorials = [
   {
-    src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80",
+    // Model in minimalist tailored coat, elegant full-length editorial
+    src: "https://images.unsplash.com/photo-1483118714900-540cf339fd46?w=800&q=80",
     title: "The Minimalist",
     href: "/lookbook/the-minimalist",
     rowSpan: true,
   },
   {
-    src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80",
+    // Elegant woman in a flowing gown — formal evening editorial
+    src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80",
     title: "Evening Allure",
     href: "/lookbook/evening-allure",
     rowSpan: false,
   },
   {
-    src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+    // Fashion model in tasteful street-style outfit, urban editorial
+    src: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=80",
     title: "Street Poetry",
     href: "/lookbook/street-poetry",
     rowSpan: false,
   },
   {
-    src: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80",
+    // Timeless tailored fashion editorial, fully clothed studio shot
+    src: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=800&q=80",
     title: "Timeless Ease",
     href: "/lookbook/timeless-ease",
     rowSpan: false,
