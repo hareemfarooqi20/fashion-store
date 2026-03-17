@@ -1,8 +1,9 @@
 "use client";
 
+import React from "react";
 import { useRef } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { ShoppingBag, Sparkles, Star, Truck, RotateCcw, Award, ArrowRight } from "lucide-react";
 
 const words = ["Elegance.", "Confidence.", "Style.", "Stories.", "You."];
@@ -343,17 +344,17 @@ function AnimatedWords({ words }: { words: string[] }) {
   }, [words.length]);
 
   return (
-    <motion.span
-      key={index}
-      initial={{ y: 80, opacity: 0, rotateX: -15 }}
-      animate={{ y: 0, opacity: 1, rotateX: 0 }}
-      exit={{ y: -80, opacity: 0, rotateX: 15 }}
-      transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] as [number,number,number,number] }}
-      className="block text-[clamp(3rem,7vw,5.5rem)] font-display font-bold leading-[1.05] gradient-text"
-    >
-      {words[index]}
-    </motion.span>
+    <AnimatePresence mode="wait">
+      <motion.span
+        key={index}
+        initial={{ y: 80, opacity: 0, rotateX: -15 }}
+        animate={{ y: 0, opacity: 1, rotateX: 0 }}
+        exit={{ y: -80, opacity: 0, rotateX: 15 }}
+        transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] as [number,number,number,number] }}
+        className="block text-[clamp(3rem,7vw,5.5rem)] font-display font-bold leading-[1.05] gradient-text"
+      >
+        {words[index]}
+      </motion.span>
+    </AnimatePresence>
   );
 }
-
-import React from "react";

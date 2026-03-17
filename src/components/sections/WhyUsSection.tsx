@@ -38,9 +38,13 @@ export default function WhyUsSection() {
           ))}
         </div>
         <motion.div initial={{opacity:0,y:30}} animate={isInView?{opacity:1,y:0}:{}} transition={{delay:0.5,duration:0.8}} className="mt-20 text-center">
-          <div className="inline-block w-12 h-px mb-8 mx-auto" style={{background:"var(--brand)"}} />
-          <blockquote className="text-2xl md:text-3xl font-display font-medium italic max-w-3xl mx-auto" style={{color:"rgba(245,245,245,0.75)"}}>Style is a way to say who you are without having to speak.</blockquote>
-          <p className="mt-5 text-sm" style={{color:"rgba(245,245,245,0.35)"}}>Rachel Zoe</p>
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-px flex-1 max-w-[120px]" style={{background:"linear-gradient(to right, transparent, var(--brand))"}} />
+            <span className="text-[var(--brand)] text-xs">✦</span>
+            <div className="h-px flex-1 max-w-[120px]" style={{background:"linear-gradient(to left, transparent, var(--brand))"}} />
+          </div>
+          <blockquote className="text-2xl md:text-3xl font-display font-medium italic max-w-3xl mx-auto leading-relaxed" style={{color:"rgba(245,245,245,0.72)"}}>&ldquo;Style is a way to say who you are without having to speak.&rdquo;</blockquote>
+          <p className="mt-5 text-sm tracking-widest uppercase" style={{color:"rgba(245,245,245,0.32)"}}>— Rachel Zoe</p>
         </motion.div>
       </div>
     </section>

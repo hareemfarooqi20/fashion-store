@@ -36,7 +36,7 @@ function ProductCard({ product }: { product: Product }) {
           src={product.images[0]}
           alt={product.name}
           fill
-          className="product-image object-cover transition-transform duration-600"
+          className="product-image object-cover transition-transform duration-700"
           sizes="(max-width: 768px) 50vw, 25vw"
         />
 
